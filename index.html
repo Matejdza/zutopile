@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Žuto Pile">
 <title>Žuto Pile ketering — domaća hrana za svaki povod | Niš</title>
 <meta name="description" content="Žuto Pile ketering iz Niša: ručno pravljeni slani, slatki i voćni stolovi, topao roštilj i jestiva platna za tim bildinge, rođendane, proslave i firme.">
 <meta property="og:title" content="Žuto Pile ketering — Niš">
@@ -17,7 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;font-family:'DM Sans',system-ui,sans-serif;background:#FBF6EC;color:#2B2118;overflow-x:hidden}
+body{margin:0;-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh;font-family:'DM Sans',system-ui,sans-serif;background:#FBF6EC;color:#2B2118;overflow-x:hidden}
 a{color:#8A4B14}a:hover{color:#5E320B}
 input::placeholder,textarea::placeholder{color:#857560}
 select{color:#2B2118}
@@ -27,12 +30,17 @@ input::placeholder,textarea::placeholder{color:#857560}
 select{color:#2B2118}
 select:invalid{color:#857560}
 select option{color:#2B2118}
+input[type=text],input[type=tel],input[type=number],textarea,button{-webkit-appearance:none;appearance:none}
+input,textarea,select{box-shadow:none;background-clip:padding-box}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+a,button,input,select,textarea,label{-webkit-tap-highlight-color:transparent}
 input[type=date],select{-webkit-appearance:none;-moz-appearance:none;appearance:none;box-sizing:border-box;width:100%;margin:0}
 input[type=date]{display:block;line-height:normal}
 input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
 input[type=date]::-webkit-calendar-picker-indicator{opacity:.55;cursor:pointer}
 input[type=date]:focus{color:#2B2118 !important}
 input[type=date]:focus + .date-ph{display:none}
+.m-date::-webkit-calendar-picker-indicator{display:none}
 select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232B2118' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;background-repeat:no-repeat !important;background-position:right 16px center !important;padding-right:42px !important}
 input,select,textarea,button{font:inherit}
 
@@ -561,7 +569,7 @@ input,select,textarea,button{font:inherit}
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Telefon<input name="tel" data-b-value="{{ f.tel }}" type="tel" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.tel }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.tel"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Vrsta događaja<select name="vrsta" data-b-value="{{ f.vrsta }}" required="" data-b-style="min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.vrsta }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.vrsta"><option value="" disabled="" hidden="">Izaberite vrstu događaja</option><option>Tim bilding</option><option>Rođendan</option><option>Proslava</option><option>Korporativni program</option><option>Nešto drugo</option></select></label>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Datum<span style="position: relative; display: block;"><input name="datum" data-b-value="{{ f.datum }}" type="date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.datum"><span class="date-ph" aria-hidden="true" data-b-style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #857560; pointer-events: none; white-space: nowrap; font-size: 16px; {{ fdph }}">dd.mm.gggg.</span></span></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Datum<span style="position: relative; display: block;"><input name="datum" data-b-value="{{ f.datum }}" type="date" class="m-date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.datum"><span class="date-ph" aria-hidden="true" data-b-style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #857560; pointer-events: none; white-space: nowrap; font-size: 16px; {{ fdph }}">Izaberite datum</span></span></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Broj gostiju<input name="gosti" data-b-value="{{ f.gosti }}" type="number" min="1" placeholder="npr. 30" data-b-style="min-height: 50px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{ fbr.gosti }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.gosti"></label>
 </div>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Mesto događaja<input name="mesto" data-b-value="{{ f.mesto }}" type="text" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.mesto }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.mesto"></label>
@@ -599,6 +607,7 @@ input,select,textarea,button{font:inherit}
 
 </div>
 <script>
+(function(){var ios=/iP(hone|od|ad)/.test(navigator.platform)||(navigator.userAgent.indexOf('Mac')>-1&&'ontouchend' in document);if(ios){var m=document.querySelector('meta[name=viewport]');m.setAttribute('content',m.getAttribute('content')+', maximum-scale=1');document.documentElement.classList.add('ios');}})();
 (function () {
   'use strict';
   class DCLogic {
@@ -742,7 +751,7 @@ class CompMobile extends DCLogic {
           const [type, path] = pair.split(':');
           const fn = (e) => { const h = get(vals, path); if (typeof h === 'function') h(e); };
           el.addEventListener(type, fn, type.startsWith('touch') ? { passive: true } : false);
-          if (type === 'input' && el.tagName === 'SELECT') el.addEventListener('change', fn);
+          if (type === 'input' && (el.tagName === 'SELECT' || el.type === 'date')) el.addEventListener('change', fn);
         });
       }
     });
@@ -770,7 +779,9 @@ class CompMobile extends DCLogic {
       inst.rootW = w / z;
     }
     fit();
-    window.addEventListener('resize', () => { fit(); update(); });
+    let lastW = document.documentElement.clientWidth;
+    window.addEventListener('resize', () => { const w = document.documentElement.clientWidth; if (w === lastW) return; lastW = w; fit(); update(); });
+    window.addEventListener('orientationchange', () => setTimeout(() => { lastW = -1; window.dispatchEvent(new Event('resize')); }, 250));
     update();
   }
 
