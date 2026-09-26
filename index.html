@@ -22,8 +22,20 @@ a{color:#8A4B14}a:hover{color:#5E320B}
 input::placeholder,textarea::placeholder{color:#857560}
 select{color:#2B2118}
 select:invalid{color:#857560}
+
+input::placeholder,textarea::placeholder{color:#857560}
+select{color:#2B2118}
+select:invalid{color:#857560}
 select option{color:#2B2118}
+input[type=date],select{-webkit-appearance:none;-moz-appearance:none;appearance:none;box-sizing:border-box;width:100%;margin:0}
+input[type=date]{display:block;line-height:normal}
+input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+input[type=date]::-webkit-calendar-picker-indicator{opacity:.55;cursor:pointer}
+input[type=date]:focus{color:#2B2118 !important}
+input[type=date]:focus + .date-ph{display:none}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232B2118' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;background-repeat:no-repeat !important;background-position:right 16px center !important;padding-right:42px !important}
 input,select,textarea,button{font:inherit}
+
 .root{min-height:100vh}
 #site-mobile{display:none}
 @media (max-width: 899px){#site-desktop{display:none}#site-mobile{display:block}}
@@ -266,7 +278,7 @@ input,select,textarea,button{font:inherit}
 <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Ime i prezime<input name="ime" data-b-value="{{ f.ime }}" type="text" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.ime }}; background: #FBF6EC;" data-ev="input:fset.ime"></label>
 <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Telefon<input name="tel" data-b-value="{{ f.tel }}" type="tel" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.tel }}; background: #FBF6EC;" data-ev="input:fset.tel"></label>
 <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Vrsta događaja<select name="vrsta" data-b-value="{{ f.vrsta }}" required="" data-b-style="min-height: 52px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{ fbr.vrsta }}; background: #FBF6EC;" data-ev="input:fset.vrsta"><option value="" disabled="" hidden="">Izaberite vrstu događaja</option><option>Tim bilding</option><option>Rođendan</option><option>Proslava</option><option>Korporativni program</option><option>Nešto drugo</option></select></label>
-<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Datum<input name="datum" data-b-value="{{ f.datum }}" type="date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC;" data-ev="input:fset.datum"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Datum<span style="position: relative; display: block;"><input name="datum" data-b-value="{{ f.datum }}" type="date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC;" data-ev="input:fset.datum"><span class="date-ph" aria-hidden="true" data-b-style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #857560; pointer-events: none; white-space: nowrap; {{ fdph }}">Izaberite datum</span></span></label>
 <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Broj gostiju<input name="gosti" data-b-value="{{ f.gosti }}" type="number" min="1" placeholder="npr. 30" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.gosti }}; background: #FBF6EC;" data-ev="input:fset.gosti"></label>
 <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Mesto događaja<input name="mesto" data-b-value="{{ f.mesto }}" type="text" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.mesto }}; background: #FBF6EC;" data-ev="input:fset.mesto"></label>
 <label style="grid-column: span 2; display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Poruka<textarea name="poruka" data-b-value="{{ f.poruka }}" rows="5" data-b-style="padding: 14px 16px; border-radius: 12px; border: 1.5px solid {{ fbr.poruka }}; background: #FBF6EC; resize: none;" data-ev="input:fset.poruka"></textarea></label>
@@ -549,7 +561,7 @@ input,select,textarea,button{font:inherit}
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Telefon<input name="tel" data-b-value="{{ f.tel }}" type="tel" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.tel }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.tel"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Vrsta događaja<select name="vrsta" data-b-value="{{ f.vrsta }}" required="" data-b-style="min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.vrsta }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.vrsta"><option value="" disabled="" hidden="">Izaberite vrstu događaja</option><option>Tim bilding</option><option>Rođendan</option><option>Proslava</option><option>Korporativni program</option><option>Nešto drugo</option></select></label>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Datum<input name="datum" data-b-value="{{ f.datum }}" type="date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.datum"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Datum<span style="position: relative; display: block;"><input name="datum" data-b-value="{{ f.datum }}" type="date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.datum"><span class="date-ph" aria-hidden="true" data-b-style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #857560; pointer-events: none; white-space: nowrap; font-size: 16px; {{ fdph }}">dd.mm.gggg.</span></span></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Broj gostiju<input name="gosti" data-b-value="{{ f.gosti }}" type="number" min="1" placeholder="npr. 30" data-b-style="min-height: 50px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{ fbr.gosti }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.gosti"></label>
 </div>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Mesto događaja<input name="mesto" data-b-value="{{ f.mesto }}" type="text" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.mesto }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.mesto"></label>
@@ -609,7 +621,8 @@ class CompDesktop extends DCLogic {
       f: F, fset: { ime: setF('ime'), tel: setF('tel'), vrsta: setF('vrsta'), datum: setF('datum'), gosti: setF('gosti'), mesto: setF('mesto'), poruka: setF('poruka') },
       fbr: { ime: fb('ime'), tel: fb('tel'), vrsta: fb('vrsta'), datum: fb('datum'), gosti: fb('gosti'), mesto: fb('mesto'), poruka: fb('poruka') },
       fmsg: this.state.fmsg || '',
-      fdcol: F.datum ? '#2B2118' : '#857560',
+      fdcol: F.datum ? '#2B2118' : 'transparent',
+      fdph: F.datum ? 'display: none;' : '',
       fmin: (() => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); })(),
       fsubmit: submit,
       formOn: !this.state.sent, sentOn: !!this.state.sent,
@@ -656,7 +669,8 @@ class CompMobile extends DCLogic {
       f: F, fset: { ime: setF('ime'), tel: setF('tel'), vrsta: setF('vrsta'), datum: setF('datum'), gosti: setF('gosti'), mesto: setF('mesto'), poruka: setF('poruka') },
       fbr: { ime: fb('ime'), tel: fb('tel'), vrsta: fb('vrsta'), datum: fb('datum'), gosti: fb('gosti'), mesto: fb('mesto'), poruka: fb('poruka') },
       fmsg: this.state.fmsg || '',
-      fdcol: F.datum ? '#2B2118' : '#857560',
+      fdcol: F.datum ? '#2B2118' : 'transparent',
+      fdph: F.datum ? 'display: none;' : '',
       fmin: (() => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); })(),
       fsubmit: submit,
       formOn: !this.state.sent, sentOn: !!this.state.sent,
