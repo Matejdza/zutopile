@@ -13,13 +13,15 @@
 <meta property="og:image" content="assets/img/hero-sto.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#F2B705">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;color-scheme:light only}
 body{margin:0;-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh;font-family:'DM Sans',system-ui,sans-serif;background:#FBF6EC;color:#2B2118;overflow-x:hidden}
 a{color:#8A4B14}a:hover{color:#5E320B}
 input::placeholder,textarea::placeholder{color:#857560}
@@ -30,6 +32,24 @@ input::placeholder,textarea::placeholder{color:#857560}
 select{color:#2B2118}
 select:invalid{color:#857560}
 select option{color:#2B2118}
+.eyebrow::before{content:"";display:block;width:28px;height:2px;border-radius:2px;background:currentColor;opacity:.9}
+.eyebrow-c::after{content:"";display:block;width:28px;height:2px;border-radius:2px;background:currentColor;opacity:.9}
+input,select,textarea,button{line-height:1.25;border-radius:12px;color:inherit}
+::placeholder{opacity:1}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#857560;opacity:1}
+input::-moz-placeholder,textarea::-moz-placeholder{color:#857560;opacity:1}
+input,textarea,select{box-sizing:border-box}
+[aria-label="Za koje prilike"]>span{flex-shrink:1;min-width:0}
+input:-webkit-autofill,input:-webkit-autofill:focus,textarea:-webkit-autofill{-webkit-box-shadow:0 0 0 60px #FBF6EC inset !important;-webkit-text-fill-color:#2B2118 !important;caret-color:#2B2118}
+a,button,label,select,input[type=date]{touch-action:manipulation}
+h1,h2,h3,blockquote,p{overflow-wrap:break-word}
+.rv-more:hover{color:#5E320B !important}
+.mob [id]{scroll-margin-top:84px}
+.nav-link{transition:background-color .2s ease,color .2s ease,transform .15s ease}
+.nav-link:active{background:#F2B705;color:#2B2118 !important;transform:scale(.98)}
+.nav-cta{transition:background-color .2s ease,transform .15s ease}
+.nav-cta:active{background:#E0A800 !important;transform:scale(.98)}
+@media (hover:hover){.nav-link:hover{background:#FFF4CC;color:#8A4B14 !important}.nav-cta:hover{background:#E0A800 !important}}
 input[type=text],input[type=tel],input[type=number],textarea,button{-webkit-appearance:none;appearance:none}
 input,textarea,select{box-shadow:none;background-clip:padding-box}
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
@@ -41,10 +61,19 @@ input[type=date]::-webkit-calendar-picker-indicator{opacity:.55;cursor:pointer}
 input[type=date]:focus{color:#2B2118 !important}
 input[type=date]:focus + .date-ph{display:none}
 .m-date::-webkit-calendar-picker-indicator{display:none}
-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232B2118' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;background-repeat:no-repeat !important;background-position:right 16px center !important;padding-right:42px !important}
+select{padding-right:44px !important}
 input,select,textarea,button{font:inherit}
-
-.root{min-height:100vh}
+.dr-arrow{transition:background-color .2s ease,color .2s ease}
+.dr-arrow:hover{background:#2B2118 !important;color:#F2B705 !important}
+.dsk [id]{scroll-margin-top:124px}
+.hnav{position:relative;padding:8px 0;transition:color .2s ease}
+.hnav::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;border-radius:2px;background:#F2B705;transform:scaleX(0);transition:transform .25s ease}
+.hnav:hover{color:#8A4B14 !important}
+.hnav:hover::after{transform:scaleX(1)}
+.hcta{transition:background-color .2s ease,transform .15s ease}
+.hcta:hover{background:#4A3829 !important;transform:translateY(-1px)}
+input,select,textarea{font:inherit}
+.root{min-height:100vh;overflow-x:clip}
 #site-mobile{display:none}
 @media (max-width: 899px){#site-desktop{display:none}#site-mobile{display:block}}
 </style>
@@ -52,29 +81,29 @@ input,select,textarea,button{font:inherit}
 <body>
 <div id="site-desktop">
 
-<div class="root" style="width: 1440px; box-sizing: border-box; display: flex; flex-direction: column; background: #FBF6EC;">
+<div class="root dsk" style="width: 1440px; box-sizing: border-box; display: flex; flex-direction: column; background: #FBF6EC;">
 
 <!-- NAV -->
-<header style="display: flex; align-items: center; justify-content: space-between; padding: 28px 96px; border-bottom: 1px solid #E8DCC3;">
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(251,246,236,.94); -webkit-backdrop-filter: saturate(160%) blur(12px); backdrop-filter: saturate(160%) blur(12px); display: flex; align-items: center; justify-content: space-between; padding: 28px 96px; border-bottom: 1px solid #E8DCC3;">
 <a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #2B2118;">
 <img src="assets/img/logo-pile.png" alt="Žuto Pile logo" width="56" height="56" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid #F2B705; flex-shrink: 0;">
 <span style="font-family: Fraunces, serif; font-size: 26px; font-weight: 700; letter-spacing: -0.5px;">Žuto Pile</span>
 <span style="font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B5A45; margin-left: 4px;">ketering</span>
 </a>
 <nav style="display: flex; align-items: center; gap: 36px; font-size: 16px; font-weight: 500;">
-<a href="#paketi" style="color: #2B2118; text-decoration: none;">Paketi</a>
-<a href="#platna" style="color: #2B2118; text-decoration: none;">Platna</a>
-<a href="#korporativno" style="color: #2B2118; text-decoration: none;">Za firme</a>
-<a href="#galerija" style="color: #2B2118; text-decoration: none;">Galerija</a>
-<a href="#recenzije" style="color: #2B2118; text-decoration: none;">Recenzije</a>
-<a href="#kontakt" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #2B2118; color: #FBF6EC; text-decoration: none; font-weight: 600;">Zatražite ponudu</a>
+<a href="#paketi" class="hnav" style="color: #2B2118; text-decoration: none;">Paketi</a>
+<a href="#platna" class="hnav" style="color: #2B2118; text-decoration: none;">Platna</a>
+<a href="#korporativno" class="hnav" style="color: #2B2118; text-decoration: none;">Za firme</a>
+<a href="#galerija" class="hnav" style="color: #2B2118; text-decoration: none;">Galerija</a>
+<a href="#recenzije" class="hnav" style="color: #2B2118; text-decoration: none;">Recenzije</a>
+<a href="#kontakt" class="hcta" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #2B2118; color: #FBF6EC; text-decoration: none; font-weight: 600;">Zatražite ponudu</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section id="top" style="display: grid; grid-template-columns: 7fr 5fr; gap: 64px; padding: 64px 96px 80px; align-items: center;">
 <div style="display: flex; flex-direction: column; gap: 28px;">
-<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; background: #F2B705; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">100% domaće · ručno pravljeno</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">100% domaće · ručno pravljeno</div>
 <h1 style="margin: 0; font-family: Fraunces, serif; font-size: 58px; line-height: 1.08; font-weight: 600; letter-spacing: -1.5px; white-space: nowrap;">Domaći ukusi za svaki<br>povod i svaki sto.</h1>
 <p style="margin: 0; font-size: 22px; line-height: 1.5; color: #5A4A38;">Slano, slatko i voćno —<br>sve ručno pravljeno, u našoj kuhinji.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 10px;" aria-label="Za koje prilike"><span style="display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DCC3; font-size: 15px; font-weight: 600; color: #2B2118; white-space: nowrap;">Tim bilding</span><span style="display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DCC3; font-size: 15px; font-weight: 600; color: #2B2118; white-space: nowrap;">Rođendani</span><span style="display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DCC3; font-size: 15px; font-weight: 600; color: #2B2118; white-space: nowrap;">Proslave</span><span style="display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DCC3; font-size: 15px; font-weight: 600; color: #2B2118; white-space: nowrap;">Firme</span></div>
@@ -117,7 +146,7 @@ input,select,textarea,button{font:inherit}
 <section id="paketi" style="padding: 72px 96px 0; display: flex; flex-direction: column; gap: 32px;">
 <div style="display: flex; flex-direction: column; gap: 12px;">
 <div style="display: flex; flex-direction: column; gap: 12px;">
-<div style="align-self: flex-start; display: inline-flex; padding: 8px 18px; border-radius: 999px; font-size: 17px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; background: #F2B705; color: #2B2118;">Paketi i cene</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">Paketi i cene</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 68px; line-height: 1.05; font-weight: 600; letter-spacing: -1.5px;">Za svaku priliku, jedna trpeza</h2>
 </div>
 <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.55; color: #5A4A38;">Cene su po osobi. Izaberite predlog ili složite svoj sto od menija ispod.</p>
@@ -176,7 +205,7 @@ input,select,textarea,button{font:inherit}
 <!-- KORPORATIVNO -->
 <section id="korporativno" style="margin: 48px 96px 0; border-radius: 28px; background: #F2B705; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0;">
 <div style="padding: 64px; display: flex; flex-direction: column; justify-content: center; gap: 24px; min-width: 0;">
-<div style="align-self: flex-start; display: inline-flex; padding: 8px 18px; border-radius: 999px; font-size: 17px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; background: #2B2118; color: #F2B705;">Korporativni program</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #2B2118;">Korporativni program</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 54px; line-height: 1.06; font-weight: 600; letter-spacing: -1.5px;">Domaća hrana za vaš tim, redovno.</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.55; max-width: 520px;">Za firme koje žele kvalitetne obroke za zaposlene, sastanke i poslovne događaje — bez brige oko organizacije.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 17px; font-weight: 600;"><li style="display: flex; align-items: center; gap: 12px;"><span style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #2B2118; color: #F2B705;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"></path></svg></span><span>Doručak i ručak za kancelariju</span></li><li style="display: flex; align-items: center; gap: 12px;"><span style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #2B2118; color: #F2B705;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"></path></svg></span><span>Posluženje za sastanke</span></li><li style="display: flex; align-items: center; gap: 12px;"><span style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #2B2118; color: #F2B705;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"></path></svg></span><span>Poslovni događaji i prijemi</span></li><li style="display: flex; align-items: center; gap: 12px;"><span style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #2B2118; color: #F2B705;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"></path></svg></span><span>Nedeljni ili mesečni ugovor</span></li></ul>
@@ -189,7 +218,7 @@ input,select,textarea,button{font:inherit}
 <section id="galerija" style="padding: 80px 96px 0; display: flex; flex-direction: column; gap: 32px;">
 <div style="display: flex; justify-content: space-between; align-items: flex-end;">
 <div style="display: flex; flex-direction: column; gap: 12px;">
-<div style="align-self: flex-start; display: inline-flex; padding: 8px 18px; border-radius: 999px; font-size: 17px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; background: #F2B705; color: #2B2118;">Galerija</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">Galerija</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 68px; line-height: 1.05; font-weight: 600; letter-spacing: -1.5px;">Ovako izgleda kad stignemo</h2>
 </div>
 <a href="https://www.instagram.com/zuto.pile.ketering/" target="_blank" rel="noopener" style="font-size: 17px; font-weight: 600;">Više na Instagramu →</a>
@@ -213,16 +242,16 @@ input,select,textarea,button{font:inherit}
 <span style="position: absolute; left: 24px; bottom: 24px; padding: 8px 16px; border-radius: 999px; background: rgba(43,33,24,.8); color: #FBF6EC; font-size: 15px; font-weight: 700; letter-spacing: .5px;"><span data-t="gcount"></span></span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 12px;">
-<button type="button" aria-label="Slika 1" data-b-style="{{ gt0 }}" data-ev="click:gp0"><img loading="lazy" decoding="async" src="assets/img/police.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 40%;"></button>
-<button type="button" aria-label="Slika 2" data-b-style="{{ gt1 }}" data-ev="click:gp1"><img loading="lazy" decoding="async" src="assets/img/plata.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
-<button type="button" aria-label="Slika 3" data-b-style="{{ gt2 }}" data-ev="click:gp2"><img loading="lazy" decoding="async" src="assets/img/voce.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
-<button type="button" aria-label="Slika 4" data-b-style="{{ gt3 }}" data-ev="click:gp3"><img loading="lazy" decoding="async" src="assets/img/burgeri.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 45%;"></button>
-<button type="button" aria-label="Slika 5" data-b-style="{{ gt4 }}" data-ev="click:gp4"><img loading="lazy" decoding="async" src="assets/img/kanapei.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%;"></button>
-<button type="button" aria-label="Slika 6" data-b-style="{{ gt5 }}" data-ev="click:gp5"><img loading="lazy" decoding="async" src="assets/img/slatko.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
-<button type="button" aria-label="Slika 7" data-b-style="{{ gt6 }}" data-ev="click:gp6"><img loading="lazy" decoding="async" src="assets/img/sirevi.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 1" data-b-style="{{ gt0 }}" data-ev="click:gp0"><img decoding="async" src="assets/img/police.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 40%;"></button>
+<button type="button" aria-label="Slika 2" data-b-style="{{ gt1 }}" data-ev="click:gp1"><img decoding="async" src="assets/img/plata.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 3" data-b-style="{{ gt2 }}" data-ev="click:gp2"><img decoding="async" src="assets/img/voce.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 4" data-b-style="{{ gt3 }}" data-ev="click:gp3"><img decoding="async" src="assets/img/burgeri.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 45%;"></button>
+<button type="button" aria-label="Slika 5" data-b-style="{{ gt4 }}" data-ev="click:gp4"><img decoding="async" src="assets/img/kanapei.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%;"></button>
+<button type="button" aria-label="Slika 6" data-b-style="{{ gt5 }}" data-ev="click:gp5"><img decoding="async" src="assets/img/slatko.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 7" data-b-style="{{ gt6 }}" data-ev="click:gp6"><img decoding="async" src="assets/img/sirevi.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
 <button type="button" aria-label="Slika 8" data-b-style="{{ gt7 }}" data-ev="click:gp7"><img src="assets/img/hero-sto.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
-<button type="button" aria-label="Slika 9" data-b-style="{{ gt8 }}" data-ev="click:gp8"><img loading="lazy" decoding="async" src="assets/img/basta.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%;"></button>
-<button type="button" aria-label="Slika 10" data-b-style="{{ gt9 }}" data-ev="click:gp9"><img loading="lazy" decoding="async" src="assets/img/firma.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 9" data-b-style="{{ gt8 }}" data-ev="click:gp8"><img decoding="async" src="assets/img/basta.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%;"></button>
+<button type="button" aria-label="Slika 10" data-b-style="{{ gt9 }}" data-ev="click:gp9"><img decoding="async" src="assets/img/firma.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
 </div>
 </div>
 <p style="margin: 0; font-family: Fraunces, serif; font-size: 26px; font-style: italic; color: #5A4A38; text-align: center;">„Sve što vidite na slikama pravljeno je ručno, u našoj kuhinji.“</p>
@@ -232,7 +261,7 @@ input,select,textarea,button{font:inherit}
 <section id="platna" style="padding: 80px 96px 0;">
 <div style="display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; padding: 56px; border-radius: 28px; background: #2B2118; color: #FBF6EC;">
 <div style="display: flex; flex-direction: column; gap: 22px;">
-<div style="display: inline-flex; align-self: flex-start; padding: 8px 18px; border-radius: 999px; background: #F2B705; color: #2B2118; font-size: 17px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Naš specijalitet</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #F2B705;">Naš specijalitet</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 64px; line-height: 1.04; font-weight: 600; letter-spacing: -1.5px;">Jestiva platna</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #D9CCB5;">Umesto obične plate — slika na štafelaju koja se jede. Slano platno od namaza, ukrašeno začinskim biljem i jestivim cvećem, i slatko platno oslikano motivom po vašoj želji.</p>
 <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9;"><li>Slano platno uz hrskave domaće krekere</li><li>Slatko platno za dečje rođendane</li><li>Motiv i boje po dogovoru</li></ul>
@@ -246,31 +275,78 @@ input,select,textarea,button{font:inherit}
 </section>
 
 <!-- RECENZIJE -->
-<section id="recenzije" style="padding: 80px 96px 0; display: flex; flex-direction: column; gap: 32px;">
+<section id="recenzije" style="position: relative; padding: 80px 96px 0; display: flex; flex-direction: column; gap: 32px;">
 <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center;">
-<div style="display: inline-flex; padding: 8px 18px; border-radius: 999px; font-size: 17px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; background: #F2B705; color: #2B2118;">Recenzije</div>
+<div class="eyebrow eyebrow-c" style="display: inline-flex; align-items: center; gap: 12px; font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">Recenzije</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 68px; line-height: 1.05; font-weight: 600; letter-spacing: -1.5px;">Šta kažu naši gosti</h2>
 </div>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px;">
-<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px;">
-<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55;">„Sve pohvale za ketering! Hrana je bila preukusna, sveže pripremljena i lepo dekorisana. Sve je stiglo na vreme i bilo je više nego dovoljno za sve goste. Posebno nam se dopalo što je sve bilo lepo organizovano i što nismo morali da brinemo ni o čemu. Gosti su bili oduševljeni, a mi prezadovoljni. Sve preporuke za svaku vrstu privatne proslave!“</blockquote>
+<div style="overflow: hidden; margin: -4px; padding: 4px;">
+<div data-b-style="{{ drTrack }}">
+<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; flex: 0 0 calc((100% - 56px) / 3); min-width: 0;">
+<svg width="40" height="30" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Sve pohvale za ketering! Hrana je bila preukusna, sveže pripremljena i lepo dekorisana. Sve je stiglo na vreme i bilo je više nego dovoljno za sve goste. Posebno nam se dopalo što je sve bilo lepo organizovano i što nismo morali da brinemo ni o čemu. Gosti su bili oduševljeni, a mi prezadovoljni. Sve preporuke za svaku vrstu privatne proslave!“</blockquote>
+<button type="button" class="rv-more" style="align-self: flex-start; margin-top: -6px; min-height: 40px; padding: 0; border: none; background: transparent; color: #8A4B14; font-size: 16px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;" data-ev="click:rvOpen0">Pročitaj više</button>
 <figcaption style="margin-top: auto; font-size: 15px; color: #6B5A45;"><strong style="color: #2B2118;">Marija Jovanović</strong> · Privatna proslava</figcaption>
 </figure>
-<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px;">
-<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55;">„Naručili smo ketering za rođendan i prezadovoljni smo! Hrana je bila ukusna, porcije odlične, a sve je izgledalo baš lepo na stolu. Komunikacija je bila jednostavna, dogovor ispoštovan, a gosti su nas stalno pitali odakle je hrana. Iskrena preporuka svima koji organizuju proslavu!“</blockquote>
+<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; flex: 0 0 calc((100% - 56px) / 3); min-width: 0;">
+<svg width="40" height="30" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Naručili smo ketering za rođendan i prezadovoljni smo! Hrana je bila ukusna, porcije odlične, a sve je izgledalo baš lepo na stolu. Komunikacija je bila jednostavna, dogovor ispoštovan, a gosti su nas stalno pitali odakle je hrana. Iskrena preporuka svima koji organizuju proslavu!“</blockquote>
+<button type="button" class="rv-more" style="align-self: flex-start; margin-top: -6px; min-height: 40px; padding: 0; border: none; background: transparent; color: #8A4B14; font-size: 16px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;" data-ev="click:rvOpen1">Pročitaj više</button>
 <figcaption style="margin-top: auto; font-size: 15px; color: #6B5A45;"><strong style="color: #2B2118;">Danica Petrović</strong> · Rođendan</figcaption>
 </figure>
-<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px;">
-<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55;">„Angažovali smo ih za ketering tokom tim bildinga i sve je prošlo odlično. Hrana je bila raznovrsna, kvalitetna i bilo je dovoljno za sve kolege. Dostava je stigla u dogovoreno vreme, a organizacija je bila veoma jednostavna. Odlična usluga i profesionalan pristup — definitivno ćemo ih angažovati ponovo.“</blockquote>
+<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; flex: 0 0 calc((100% - 56px) / 3); min-width: 0;">
+<svg width="40" height="30" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Ketering smo uzeli za team building i baš smo zadovoljni. Dogovor je prošao bez problema, hrana je bila odlična i svi iz ekipe su pohvalili. Definitivno preporuka.“</blockquote>
 <figcaption style="margin-top: auto; font-size: 15px; color: #6B5A45;"><strong style="color: #2B2118;">Jovana Ivković</strong> · Tim bilding</figcaption>
 </figure>
+<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; flex: 0 0 calc((100% - 56px) / 3); min-width: 0;">
+<svg width="40" height="30" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Odlično je bilo, sve preporuke.“</blockquote>
+<figcaption style="margin-top: auto; font-size: 15px; color: #6B5A45;"><strong style="color: #2B2118;">Danilo Marković</strong> · Rođendan</figcaption>
+</figure>
+<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; flex: 0 0 calc((100% - 56px) / 3); min-width: 0;">
+<svg width="40" height="30" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Fantastično, prezadovoljni smo kako je sve ispalo, sve pohvale za Vanju.“</blockquote>
+<figcaption style="margin-top: auto; font-size: 15px; color: #6B5A45;"><strong style="color: #2B2118;">Mila Cvetković</strong> · Rođendan</figcaption>
+</figure>
+<figure style="margin: 0; padding: 36px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; flex: 0 0 calc((100% - 56px) / 3); min-width: 0;">
+<svg width="40" height="30" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Sve preporuke.“</blockquote>
+<figcaption style="margin-top: auto; font-size: 15px; color: #6B5A45;"><strong style="color: #2B2118;">Stefan Stojković</strong> · Privatna proslava</figcaption>
+</figure>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 24px;">
+<button type="button" aria-label="Prethodne recenzije" class="dr-arrow" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid #2B2118; background: #FFFFFF; color: #2B2118; cursor: pointer; padding: 0;" data-ev="click:drPrev"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<div style="display: flex; align-items: center; gap: 4px;">
+
+<button type="button" data-b-aria-label="{{ drDots.0.label }}" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; padding: 0;" data-ev="click:drDots.0.pick"><span data-b-style="{{ drDots.0.style }}"></span></button>
+
+<button type="button" data-b-aria-label="{{ drDots.1.label }}" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; padding: 0;" data-ev="click:drDots.1.pick"><span data-b-style="{{ drDots.1.style }}"></span></button>
+
+<button type="button" data-b-aria-label="{{ drDots.2.label }}" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; padding: 0;" data-ev="click:drDots.2.pick"><span data-b-style="{{ drDots.2.style }}"></span></button>
+
+<button type="button" data-b-aria-label="{{ drDots.3.label }}" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; padding: 0;" data-ev="click:drDots.3.pick"><span data-b-style="{{ drDots.3.style }}"></span></button>
+
+</div>
+<button type="button" aria-label="Sledeće recenzije" class="dr-arrow" style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid #2B2118; background: #FFFFFF; color: #2B2118; cursor: pointer; padding: 0;" data-ev="click:drNext"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</div>
+<div data-if="rvShow" style="display:contents">
+<div style="position: absolute; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(251,246,236,.9); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);" data-ev="click:rvClose">
+<figure role="dialog" aria-label="Cela recenzija" style="position: relative; margin: 0; max-width: 720px; padding: 48px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; box-shadow: 0 24px 60px rgba(43,33,24,.18); display: flex; flex-direction: column; gap: 18px; box-sizing: border-box; width: 100%;" data-ev="click:rvStop">
+<button type="button" aria-label="Zatvori" style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: none; background: #FBF6EC; color: #2B2118; cursor: pointer; padding: 0;" data-ev="click:rvClose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<svg width="34" height="26" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 22px; line-height: 1.55;"><span data-t="rvText"></span></blockquote>
+<figcaption style="font-size: 16px; color: #6B5A45;"><strong style="color: #2B2118;"><span data-t="rvName"></span></strong> · <span data-t="rvTag"></span></figcaption>
+</figure>
+</div>
 </div>
 </section>
 
 <!-- KONTAKT -->
 <section id="kontakt" style="margin: 80px 96px 64px; display: grid; grid-template-columns: 5fr 7fr; gap: 64px; padding: 72px; border-radius: 28px; background: #FFFFFF; border: 1px solid #E8DCC3;">
 <div style="display: flex; flex-direction: column; gap: 24px;">
-<div style="align-self: flex-start; display: inline-flex; padding: 8px 18px; border-radius: 999px; font-size: 17px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; background: #F2B705; color: #2B2118;">Kontakt</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">Kontakt</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 54px; line-height: 1.06; font-weight: 600; letter-spacing: -1.5px;">Vi slavite,<br>mi spremamo.</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #5A4A38;">Javite se na način koji vam je najlakši — odgovaramo sa predlogom menija i cenom.</p>
 <p style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #8A4B14;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Po dogovoru radimo ketering i za okolinu Niša.</p>
@@ -280,14 +356,14 @@ input,select,textarea,button{font:inherit}
 <a href="https://www.instagram.com/zuto.pile.ketering/" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; padding: 0 24px; border-radius: 16px; background: #FBF6EC; border: 1px solid #E8DCC3; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;"><span>Poručite u DM</span><span>@zuto.pile.ketering</span></a>
 </div>
 </div>
-<div style="min-height: 563px; display: flex; flex-direction: column;">
+<div style="min-height: 551px; display: flex; flex-direction: column;">
 <div data-if="formOn" style="display:contents">
 <form style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-content: start;">
-<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Ime i prezime<input name="ime" data-b-value="{{ f.ime }}" type="text" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.ime }}; background: #FBF6EC;" data-ev="input:fset.ime"></label>
-<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Telefon<input name="tel" data-b-value="{{ f.tel }}" type="tel" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.tel }}; background: #FBF6EC;" data-ev="input:fset.tel"></label>
-<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Vrsta događaja<select name="vrsta" data-b-value="{{ f.vrsta }}" required="" data-b-style="min-height: 52px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{ fbr.vrsta }}; background: #FBF6EC;" data-ev="input:fset.vrsta"><option value="" disabled="" hidden="">Izaberite vrstu događaja</option><option>Tim bilding</option><option>Rođendan</option><option>Proslava</option><option>Korporativni program</option><option>Nešto drugo</option></select></label>
-<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Datum<span style="position: relative; display: block;"><input name="datum" data-b-value="{{ f.datum }}" type="date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC;" data-ev="input:fset.datum"><span class="date-ph" aria-hidden="true" data-b-style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #857560; pointer-events: none; white-space: nowrap; {{ fdph }}">Izaberite datum</span></span></label>
-<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Broj gostiju<input name="gosti" data-b-value="{{ f.gosti }}" type="number" min="1" placeholder="npr. 30" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.gosti }}; background: #FBF6EC;" data-ev="input:fset.gosti"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Ime i prezime<input name="ime" autocomplete="name" data-b-value="{{ f.ime }}" type="text" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.ime }}; background: #FBF6EC;" data-ev="input:fset.ime"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Telefon<input name="tel" autocomplete="tel" inputmode="tel" data-b-value="{{ f.tel }}" type="tel" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.tel }}; background: #FBF6EC;" data-ev="input:fset.tel"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Vrsta događaja<span style="position: relative; display: block;"><select name="vrsta" data-b-value="{{ f.vrsta }}" required="" data-b-style="min-height: 52px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{ fbr.vrsta }}; background: #FBF6EC;" data-ev="input:fset.vrsta"><option value="" disabled="" hidden="">Izaberite vrstu događaja</option><option>Tim bilding</option><option>Rođendan</option><option>Proslava</option><option>Korporativni program</option><option>Nešto drugo</option></select><svg class="sel-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B2118" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 16px; top: 50%; margin-top: -8px; pointer-events: none;"><path d="M6 9l6 6 6-6"></path></svg></span></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Datum<span style="position: relative; display: block;"><input name="datum" data-b-value="{{ f.datum }}" type="date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC;" data-ev="input:fset.datum"><span class="date-ph" aria-hidden="true" data-b-style="position: absolute; inset: 0; display: flex; align-items: center; padding: 0 16px; color: #857560; pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; {{ fdph }}">Izaberite datum</span></span></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Broj gostiju<input name="gosti" inputmode="numeric" data-b-value="{{ f.gosti }}" type="number" min="1" placeholder="npr. 30" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.gosti }}; background: #FBF6EC;" data-ev="input:fset.gosti"></label>
 <label style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Mesto događaja<input name="mesto" data-b-value="{{ f.mesto }}" type="text" data-b-style="min-height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid {{ fbr.mesto }}; background: #FBF6EC;" data-ev="input:fset.mesto"></label>
 <label style="grid-column: span 2; display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 600;">Poruka<textarea name="poruka" data-b-value="{{ f.poruka }}" rows="5" data-b-style="padding: 14px 16px; border-radius: 12px; border: 1.5px solid {{ fbr.poruka }}; background: #FBF6EC; resize: none;" data-ev="input:fset.poruka"></textarea></label>
 <p role="status" style="grid-column: span 2; margin: 0; min-height: 20px; font-size: 14px; font-weight: 600; line-height: 1.4; color: #C0392B;"><span data-t="fmsg"></span></p>
@@ -321,10 +397,10 @@ input,select,textarea,button{font:inherit}
 </div>
 <div id="site-mobile">
 
-<div class="root" style="width: 375px; box-sizing: border-box; display: flex; flex-direction: column; background: #FBF6EC;">
+<div class="root mob" style="width: 375px; box-sizing: border-box; display: flex; flex-direction: column; background: #FBF6EC;">
 
 <!-- NAV -->
-<header style="position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid #E8DCC3;">
+<header style="position: sticky; top: 0; z-index: 50; background: rgba(251,246,236,.94); -webkit-backdrop-filter: saturate(160%) blur(12px); backdrop-filter: saturate(160%) blur(12px); display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid #E8DCC3;">
 <a href="#m-top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #2B2118;">
 <img src="assets/img/logo-pile.png" alt="Žuto Pile logo" width="44" height="44" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #F2B705; flex-shrink: 0;">
 <span style="font-family: Fraunces, serif; font-size: 21px; font-weight: 700; letter-spacing: -0.3px;">Žuto Pile</span>
@@ -334,14 +410,14 @@ input,select,textarea,button{font:inherit}
 <button type="button" data-b-aria-label="{{ navLabel }}" data-b-aria-expanded="{{ navOpen }}" data-b-style="{{ navBtn }}" data-ev="click:navToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path data-b-d="{{ navIcon }}"></path></svg></button>
 </div>
 <nav aria-label="Sekcije sajta" data-b-style="{{ navPanel }}">
-<ul style="margin: 0; padding: 0; list-style: none;"><li><a href="#m-paketi" style="display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 6px; border-bottom: 1px solid #F0E6D2; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Paketi i cene<span aria-hidden="true" style="color: #C9A04A;">→</span></a></li><li><a href="#m-meni" style="display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 6px; border-bottom: 1px solid #F0E6D2; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Meni — slani i slatki sto<span aria-hidden="true" style="color: #C9A04A;">→</span></a></li><li><a href="#m-korporativno" style="display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 6px; border-bottom: 1px solid #F0E6D2; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Korporativni program<span aria-hidden="true" style="color: #C9A04A;">→</span></a></li><li><a href="#m-galerija" style="display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 6px; border-bottom: 1px solid #F0E6D2; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Galerija<span aria-hidden="true" style="color: #C9A04A;">→</span></a></li><li><a href="#m-platna" style="display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 6px; border-bottom: 1px solid #F0E6D2; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Jestiva platna<span aria-hidden="true" style="color: #C9A04A;">→</span></a></li><li><a href="#m-recenzije" style="display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 6px; border-bottom: 1px solid #F0E6D2; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Recenzije<span aria-hidden="true" style="color: #C9A04A;">→</span></a></li><li><a href="#m-kontakt" style="display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 6px; border-bottom: 1px solid #F0E6D2; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Kontakt i upit<span aria-hidden="true" style="color: #C9A04A;">→</span></a></li></ul>
-<a href="#m-kontakt" style="display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: 14px; border-radius: 999px; background: #F2B705; color: #2B2118; text-decoration: none; font-size: 16px; font-weight: 700;" data-ev="click:navClose">Pošaljite upit</a>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px;"><li><a href="#m-paketi" class="nav-link" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; padding: 0 12px; border-radius: 14px; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Paketi i cene</a></li><li><a href="#m-meni" class="nav-link" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; padding: 0 12px; border-radius: 14px; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Slani i slatki sto</a></li><li><a href="#m-korporativno" class="nav-link" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; padding: 0 12px; border-radius: 14px; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Korporativni program</a></li><li><a href="#m-galerija" class="nav-link" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; padding: 0 12px; border-radius: 14px; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Galerija</a></li><li><a href="#m-platna" class="nav-link" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; padding: 0 12px; border-radius: 14px; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Jestiva platna</a></li><li><a href="#m-recenzije" class="nav-link" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; padding: 0 12px; border-radius: 14px; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Recenzije</a></li><li><a href="#m-kontakt" class="nav-link" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 50px; padding: 0 12px; border-radius: 14px; color: #2B2118; text-decoration: none; font-size: 17px; font-weight: 600;" data-ev="click:navClose">Kontakt</a></li></ul>
+<a href="#m-kontakt" class="nav-cta" style="display: flex; align-items: center; justify-content: center; min-height: 52px; margin-top: 12px; border-radius: 999px; background: #F2B705; color: #2B2118; text-decoration: none; font-size: 16px; font-weight: 700;" data-ev="click:navClose">Pošaljite upit</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section id="m-top" style="padding: 28px 16px 0; display: flex; flex-direction: column; gap: 16px;">
-<div style="align-self: flex-start; display: inline-flex; padding: 7px 14px; border-radius: 999px; background: #F2B705; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">100% domaće · ručno pravljeno</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.2; font-weight: 700; letter-spacing: 1.5px; white-space: nowrap; text-transform: uppercase; color: #8A4B14;">100% domaće · ručno pravljeno</div>
 <h1 style="margin: 0; font-family: Fraunces, serif; font-size: 29px; line-height: 1.12; font-weight: 600; letter-spacing: -0.6px; white-space: nowrap;">Domaći ukusi za svaki<br>povod i svaki sto.</h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.5; color: #5A4A38;">Slano, slatko i voćno —<br>sve ručno pravljeno, u našoj kuhinji.</p>
 <div style="display: flex; flex-wrap: nowrap; justify-content: space-between; gap: 5px;" aria-label="Za koje prilike"><span style="display: inline-flex; align-items: center; padding: 6px 9px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DCC3; font-size: 13px; font-weight: 600; color: #2B2118; white-space: nowrap;">Tim bilding</span><span style="display: inline-flex; align-items: center; padding: 6px 9px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DCC3; font-size: 13px; font-weight: 600; color: #2B2118; white-space: nowrap;">Rođendani</span><span style="display: inline-flex; align-items: center; padding: 6px 9px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DCC3; font-size: 13px; font-weight: 600; color: #2B2118; white-space: nowrap;">Proslave</span><span style="display: inline-flex; align-items: center; padding: 6px 9px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E8DCC3; font-size: 13px; font-weight: 600; color: #2B2118; white-space: nowrap;">Firme</span></div>
@@ -377,7 +453,7 @@ input,select,textarea,button{font:inherit}
 
 <!-- PAKETI -->
 <section id="m-paketi" style="padding: 40px 16px 0; display: flex; flex-direction: column; gap: 20px;">
-<div style="align-self: flex-start; display: inline-flex; padding: 7px 14px; border-radius: 999px; background: #F2B705; color: #2B2118; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Paketi i cene</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">Paketi i cene</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 36px; line-height: 1.08; font-weight: 600; letter-spacing: -1px;">Za svaku priliku, jedna trpeza</h2>
 <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #5A4A38;">Cene su po osobi. Izaberite predlog ili složite svoj sto od menija ispod.</p>
 <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 4px;">
@@ -448,7 +524,7 @@ input,select,textarea,button{font:inherit}
 <!-- KORPORATIVNO -->
 <section id="m-korporativno" style="margin: 32px 16px 0; border-radius: 22px; background: #F2B705; display: flex; flex-direction: column; overflow: hidden;">
 <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px; height: 414px; width: 296px">
-<div style="align-self: flex-start; display: inline-flex; padding: 7px 14px; border-radius: 999px; background: #2B2118; color: #F2B705; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;">Korporativni program</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #2B2118;">Korporativni program</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 32px; line-height: 1.08; font-weight: 600; letter-spacing: -0.8px;">Domaća hrana za vaš tim, redovno.</h2>
 <p style="margin: 0; font-size: 16px; line-height: 1.55;">Za firme koje žele kvalitetne obroke za zaposlene, sastanke i poslovne događaje — bez brige oko organizacije.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 15px; font-weight: 600;"><li style="display: flex; align-items: center; gap: 12px;"><span style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #2B2118; color: #F2B705;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"></path></svg></span><span>Doručak i ručak za kancelariju</span></li><li style="display: flex; align-items: center; gap: 12px;"><span style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #2B2118; color: #F2B705;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"></path></svg></span><span>Posluženje za sastanke</span></li><li style="display: flex; align-items: center; gap: 12px;"><span style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #2B2118; color: #F2B705;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"></path></svg></span><span>Poslovni događaji i prijemi</span></li><li style="display: flex; align-items: center; gap: 12px;"><span style="flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #2B2118; color: #F2B705;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L19 7"></path></svg></span><span>Nedeljni ili mesečni ugovor</span></li></ul>
@@ -459,7 +535,7 @@ input,select,textarea,button{font:inherit}
 
 <!-- GALERIJA -->
 <section id="m-galerija" style="padding: 40px 16px 0; display: flex; flex-direction: column; gap: 20px;">
-<div style="align-self: flex-start; display: inline-flex; padding: 7px 14px; border-radius: 999px; background: #F2B705; color: #2B2118; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Galerija</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">Galerija</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 36px; line-height: 1.08; font-weight: 600; letter-spacing: -1px;">Ovako izgleda kad stignemo</h2>
 <div style="position: relative; border-radius: 18px; overflow: hidden; height: 260px; touch-action: pan-y;" data-ev="touchstart:gts;touchend:gte">
 <div data-b-style="{{ gtrack }}">
@@ -480,16 +556,16 @@ input,select,textarea,button{font:inherit}
 </div>
 <div style="overflow: hidden; margin-top: -8px;">
 <div data-b-style="{{ gstrip }}">
-<button type="button" aria-label="Slika 1" data-b-style="{{ gt0 }}" data-ev="click:gp0"><img loading="lazy" decoding="async" src="assets/img/police.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 40%;"></button>
-<button type="button" aria-label="Slika 2" data-b-style="{{ gt1 }}" data-ev="click:gp1"><img loading="lazy" decoding="async" src="assets/img/plata.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
-<button type="button" aria-label="Slika 3" data-b-style="{{ gt2 }}" data-ev="click:gp2"><img loading="lazy" decoding="async" src="assets/img/voce.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
-<button type="button" aria-label="Slika 4" data-b-style="{{ gt3 }}" data-ev="click:gp3"><img loading="lazy" decoding="async" src="assets/img/burgeri.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 45%;"></button>
-<button type="button" aria-label="Slika 5" data-b-style="{{ gt4 }}" data-ev="click:gp4"><img loading="lazy" decoding="async" src="assets/img/kanapei.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%;"></button>
-<button type="button" aria-label="Slika 6" data-b-style="{{ gt5 }}" data-ev="click:gp5"><img loading="lazy" decoding="async" src="assets/img/slatko.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
-<button type="button" aria-label="Slika 7" data-b-style="{{ gt6 }}" data-ev="click:gp6"><img loading="lazy" decoding="async" src="assets/img/sirevi.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 1" data-b-style="{{ gt0 }}" data-ev="click:gp0"><img decoding="async" src="assets/img/police.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 40%;"></button>
+<button type="button" aria-label="Slika 2" data-b-style="{{ gt1 }}" data-ev="click:gp1"><img decoding="async" src="assets/img/plata.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 3" data-b-style="{{ gt2 }}" data-ev="click:gp2"><img decoding="async" src="assets/img/voce.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 4" data-b-style="{{ gt3 }}" data-ev="click:gp3"><img decoding="async" src="assets/img/burgeri.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 45%;"></button>
+<button type="button" aria-label="Slika 5" data-b-style="{{ gt4 }}" data-ev="click:gp4"><img decoding="async" src="assets/img/kanapei.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%;"></button>
+<button type="button" aria-label="Slika 6" data-b-style="{{ gt5 }}" data-ev="click:gp5"><img decoding="async" src="assets/img/slatko.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 7" data-b-style="{{ gt6 }}" data-ev="click:gp6"><img decoding="async" src="assets/img/sirevi.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
 <button type="button" aria-label="Slika 8" data-b-style="{{ gt7 }}" data-ev="click:gp7"><img src="assets/img/hero-sto.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
-<button type="button" aria-label="Slika 9" data-b-style="{{ gt8 }}" data-ev="click:gp8"><img loading="lazy" decoding="async" src="assets/img/basta.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%;"></button>
-<button type="button" aria-label="Slika 10" data-b-style="{{ gt9 }}" data-ev="click:gp9"><img loading="lazy" decoding="async" src="assets/img/firma.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
+<button type="button" aria-label="Slika 9" data-b-style="{{ gt8 }}" data-ev="click:gp8"><img decoding="async" src="assets/img/basta.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 55%;"></button>
+<button type="button" aria-label="Slika 10" data-b-style="{{ gt9 }}" data-ev="click:gp9"><img decoding="async" src="assets/img/firma.jpg" alt="" style="width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 50%;"></button>
 </div>
 </div>
 <a href="https://www.instagram.com/zuto.pile.ketering/" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; border: 1.5px solid #E8DCC3; background: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 600;">Više na Instagramu →</a>
@@ -498,7 +574,7 @@ input,select,textarea,button{font:inherit}
 
 <!-- PLATNA -->
 <section id="m-platna" style="margin: 40px 16px 0; padding: 28px 20px; border-radius: 22px; background: #2B2118; color: #FBF6EC; display: flex; flex-direction: column; gap: 16px;">
-<div style="display: inline-flex; align-self: flex-start; padding: 7px 14px; border-radius: 999px; background: #F2B705; color: #2B2118; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Naš specijalitet</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #F2B705;">Naš specijalitet</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 36px; line-height: 1.08; font-weight: 600; letter-spacing: -1px;">Jestiva platna</h2>
 <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #D9CCB5;">Umesto obične plate — slika na štafelaju koja se jede. Slano platno od namaza, ukrašeno začinskim biljem i jestivim cvećem, i slatko platno oslikano motivom po vašoj želji.</p>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
@@ -510,27 +586,44 @@ input,select,textarea,button{font:inherit}
 </section>
 
 <!-- RECENZIJE -->
-<section id="m-recenzije" style="padding: 40px 16px 0; display: flex; flex-direction: column; gap: 20px;">
+<section id="m-recenzije" style="position: relative; padding: 40px 16px 0; display: flex; flex-direction: column; gap: 20px;">
 <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center;">
-<div style="display: inline-flex; padding: 7px 14px; border-radius: 999px; background: #F2B705; color: #2B2118; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Recenzije</div>
+<div class="eyebrow eyebrow-c" style="display: inline-flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">Recenzije</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 36px; line-height: 1.08; font-weight: 600; letter-spacing: -1px;">Šta kažu naši gosti</h2>
 </div>
 <div style="overflow: hidden; border-radius: 20px; touch-action: pan-y;" data-ev="touchstart:rts;touchend:rte">
 <div data-b-style="{{ rtrack }}">
 <figure style="margin: 0; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; flex: 0 0 100%; min-width: 0;">
 <svg width="34" height="26" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
-<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5;">„Sve pohvale za ketering! Hrana je bila preukusna, sveže pripremljena i lepo dekorisana. Sve je stiglo na vreme i bilo je više nego dovoljno za sve goste. Posebno nam se dopalo što je sve bilo lepo organizovano i što nismo morali da brinemo ni o čemu. Gosti su bili oduševljeni, a mi prezadovoljni. Sve preporuke za svaku vrstu privatne proslave!“</blockquote>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Sve pohvale za ketering! Hrana je bila preukusna, sveže pripremljena i lepo dekorisana. Sve je stiglo na vreme i bilo je više nego dovoljno za sve goste. Posebno nam se dopalo što je sve bilo lepo organizovano i što nismo morali da brinemo ni o čemu. Gosti su bili oduševljeni, a mi prezadovoljni. Sve preporuke za svaku vrstu privatne proslave!“</blockquote>
+<button type="button" class="rv-more" style="align-self: flex-start; margin-top: -6px; min-height: 40px; padding: 0; border: none; background: transparent; color: #8A4B14; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;" data-ev="click:rvOpen0">Pročitaj više</button>
 <figcaption style="margin-top: auto; font-size: 14px; color: #6B5A45;"><strong style="color: #2B2118;">Marija Jovanović</strong> · Privatna proslava</figcaption>
 </figure>
 <figure style="margin: 0; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; flex: 0 0 100%; min-width: 0;">
 <svg width="34" height="26" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
-<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5;">„Naručili smo ketering za rođendan i prezadovoljni smo! Hrana je bila ukusna, porcije odlične, a sve je izgledalo baš lepo na stolu. Komunikacija je bila jednostavna, dogovor ispoštovan, a gosti su nas stalno pitali odakle je hrana. Iskrena preporuka svima koji organizuju proslavu!“</blockquote>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Naručili smo ketering za rođendan i prezadovoljni smo! Hrana je bila ukusna, porcije odlične, a sve je izgledalo baš lepo na stolu. Komunikacija je bila jednostavna, dogovor ispoštovan, a gosti su nas stalno pitali odakle je hrana. Iskrena preporuka svima koji organizuju proslavu!“</blockquote>
+<button type="button" class="rv-more" style="align-self: flex-start; margin-top: -6px; min-height: 40px; padding: 0; border: none; background: transparent; color: #8A4B14; font-size: 15px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;" data-ev="click:rvOpen1">Pročitaj više</button>
 <figcaption style="margin-top: auto; font-size: 14px; color: #6B5A45;"><strong style="color: #2B2118;">Danica Petrović</strong> · Rođendan</figcaption>
 </figure>
 <figure style="margin: 0; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; flex: 0 0 100%; min-width: 0;">
 <svg width="34" height="26" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
-<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5;">„Angažovali smo ih za ketering tokom tim bildinga i sve je prošlo odlično. Hrana je bila raznovrsna, kvalitetna i bilo je dovoljno za sve kolege. Dostava je stigla u dogovoreno vreme, a organizacija je bila veoma jednostavna. Odlična usluga i profesionalan pristup — definitivno ćemo ih angažovati ponovo.“</blockquote>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Ketering smo uzeli za team building i baš smo zadovoljni. Dogovor je prošao bez problema, hrana je bila odlična i svi iz ekipe su pohvalili. Definitivno preporuka.“</blockquote>
 <figcaption style="margin-top: auto; font-size: 14px; color: #6B5A45;"><strong style="color: rgb(43, 33, 24)">Jovana Ivković</strong> · Tim bilding</figcaption>
+</figure>
+<figure style="margin: 0; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; flex: 0 0 100%; min-width: 0;">
+<svg width="34" height="26" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Odlično je bilo, sve preporuke.“</blockquote>
+<figcaption style="margin-top: auto; font-size: 14px; color: #6B5A45;"><strong style="color: rgb(43, 33, 24)">Danilo Marković</strong> · Rođendan</figcaption>
+</figure>
+<figure style="margin: 0; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; flex: 0 0 100%; min-width: 0;">
+<svg width="34" height="26" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Fantastično, prezadovoljni smo kako je sve ispalo, sve pohvale za Vanju.“</blockquote>
+<figcaption style="margin-top: auto; font-size: 14px; color: #6B5A45;"><strong style="color: rgb(43, 33, 24)">Mila Cvetković</strong> · Rođendan</figcaption>
+</figure>
+<figure style="margin: 0; padding: 24px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; flex: 0 0 100%; min-width: 0;">
+<svg width="34" height="26" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 16px; line-height: 1.5; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden;">„Sve preporuke.“</blockquote>
+<figcaption style="margin-top: auto; font-size: 14px; color: #6B5A45;"><strong style="color: rgb(43, 33, 24)">Stefan Stojković</strong> · Privatna proslava</figcaption>
 </figure>
 </div>
 </div>
@@ -544,14 +637,30 @@ input,select,textarea,button{font:inherit}
 
 <button type="button" data-b-aria-label="{{ dots.2.label }}" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; padding: 0;" data-ev="click:dots.2.pick"><span data-b-style="{{ dots.2.style }}"></span></button>
 
+<button type="button" data-b-aria-label="{{ dots.3.label }}" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; padding: 0;" data-ev="click:dots.3.pick"><span data-b-style="{{ dots.3.style }}"></span></button>
+
+<button type="button" data-b-aria-label="{{ dots.4.label }}" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; padding: 0;" data-ev="click:dots.4.pick"><span data-b-style="{{ dots.4.style }}"></span></button>
+
+<button type="button" data-b-aria-label="{{ dots.5.label }}" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 44px; border: none; background: transparent; cursor: pointer; padding: 0;" data-ev="click:dots.5.pick"><span data-b-style="{{ dots.5.style }}"></span></button>
+
 </div>
 <button type="button" aria-label="Sledeća recenzija" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid #2B2118; background: #FFFFFF; color: #2B2118; cursor: pointer; padding: 0;" data-ev="click:next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</div>
+<div data-if="rvShow" style="display:contents">
+<div style="position: absolute; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(251,246,236,.9); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);" data-ev="click:rvClose">
+<figure role="dialog" aria-label="Cela recenzija" style="position: relative; margin: 0; padding: 28px 24px; border-radius: 24px; background: #FFFFFF; border: 1px solid #E8DCC3; box-shadow: 0 24px 60px rgba(43,33,24,.18); display: flex; flex-direction: column; gap: 18px; box-sizing: border-box; width: 100%;" data-ev="click:rvStop">
+<button type="button" aria-label="Zatvori" style="position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: none; background: #FBF6EC; color: #2B2118; cursor: pointer; padding: 0;" data-ev="click:rvClose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<svg width="34" height="26" viewBox="0 0 34 26" fill="#F2B705" aria-hidden="true"><path d="M0 26V15C0 6.7 4.6 1.6 12.4 0l1.4 3.6C9.1 5 7 8 6.8 12H13v14H0zm20 0V15c0-8.3 4.6-13.4 12.4-15l1.4 3.6C29.1 5 27 8 26.8 12H33v14H20z"></path></svg>
+<blockquote style="margin: 0; font-family: Fraunces, serif; font-size: 18px; line-height: 1.55;"><span data-t="rvText"></span></blockquote>
+<figcaption style="font-size: 14px; color: #6B5A45;"><strong style="color: #2B2118;"><span data-t="rvName"></span></strong> · <span data-t="rvTag"></span></figcaption>
+</figure>
+</div>
 </div>
 </section>
 
 <!-- KONTAKT -->
 <section id="m-kontakt" style="margin: 40px 16px 32px; padding: 24px 20px; border-radius: 22px; background: #FFFFFF; border: 1px solid #E8DCC3; display: flex; flex-direction: column; gap: 14px;">
-<div style="align-self: flex-start; display: inline-flex; padding: 7px 14px; border-radius: 999px; background: #F2B705; color: #2B2118; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Kontakt</div>
+<div class="eyebrow" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.2; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #8A4B14;">Kontakt</div>
 <h2 style="margin: 0; font-family: Fraunces, serif; font-size: 40px; line-height: 1.08; font-weight: 600; letter-spacing: -1px;">Vi slavite,<br>mi spremamo.</h2>
 <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #5A4A38;">Javite se na način koji vam je najlakši — odgovaramo sa predlogom menija i cenom.</p>
 <p style="margin: 0; display: flex; align-items: flex-start; gap: 8px; font-size: 15px; font-weight: 600; line-height: 1.45; color: #8A4B14;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>Po dogovoru radimo ketering i za okolinu Niša.</p>
@@ -562,15 +671,15 @@ input,select,textarea,button{font:inherit}
 </div>
 <div style="height: 1px; background: #F0E6D2;"></div>
 <div style="font-family: Fraunces, serif; font-size: 22px; font-weight: 600;">Ili pošaljite upit</div>
-<div style="min-height: 638px; display: flex; flex-direction: column;">
+<div style="min-height: 622px; display: flex; flex-direction: column;">
 <div data-if="formOn" style="display:contents">
 <form style="display: flex; flex-direction: column; gap: 12px;">
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Ime i prezime<input name="ime" data-b-value="{{ f.ime }}" type="text" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.ime }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.ime"></label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Telefon<input name="tel" data-b-value="{{ f.tel }}" type="tel" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.tel }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.tel"></label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Vrsta događaja<select name="vrsta" data-b-value="{{ f.vrsta }}" required="" data-b-style="min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.vrsta }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.vrsta"><option value="" disabled="" hidden="">Izaberite vrstu događaja</option><option>Tim bilding</option><option>Rođendan</option><option>Proslava</option><option>Korporativni program</option><option>Nešto drugo</option></select></label>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Datum<span style="position: relative; display: block;"><input name="datum" data-b-value="{{ f.datum }}" type="date" class="m-date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.datum"><span class="date-ph" aria-hidden="true" data-b-style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #857560; pointer-events: none; white-space: nowrap; font-size: 16px; {{ fdph }}">Izaberite datum</span></span></label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Broj gostiju<input name="gosti" data-b-value="{{ f.gosti }}" type="number" min="1" placeholder="npr. 30" data-b-style="min-height: 50px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{ fbr.gosti }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.gosti"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Ime i prezime<input name="ime" autocomplete="name" data-b-value="{{ f.ime }}" type="text" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.ime }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.ime"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Telefon<input name="tel" autocomplete="tel" inputmode="tel" data-b-value="{{ f.tel }}" type="tel" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.tel }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.tel"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Vrsta događaja<span style="position: relative; display: block;"><select name="vrsta" data-b-value="{{ f.vrsta }}" required="" data-b-style="min-height: 50px; padding: 0 10px; border-radius: 12px; border: 1.5px solid {{ fbr.vrsta }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.vrsta"><option value="" disabled="" hidden="">Izaberite vrstu događaja</option><option>Tim bilding</option><option>Rođendan</option><option>Proslava</option><option>Korporativni program</option><option>Nešto drugo</option></select><svg class="sel-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2B2118" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; right: 16px; top: 50%; margin-top: -8px; pointer-events: none;"><path d="M6 9l6 6 6-6"></path></svg></span></label>
+<div style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: 12px;">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Datum<span style="position: relative; display: block;"><input name="datum" data-b-value="{{ f.datum }}" type="date" class="m-date" data-b-min="{{ fmin }}" aria-label="Datum događaja" data-b-style="color: {{ fdcol }}; min-height: 50px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{ fbr.datum }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.datum"><span class="date-ph" aria-hidden="true" data-b-style="position: absolute; inset: 0; display: flex; align-items: center; padding: 0 12px; color: #857560; pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; font-size: 16px; {{ fdph }}">Izaberite datum</span></span></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Broj gostiju<input name="gosti" inputmode="numeric" data-b-value="{{ f.gosti }}" type="number" min="1" placeholder="npr. 30" data-b-style="min-height: 50px; padding: 0 12px; border-radius: 12px; border: 1.5px solid {{ fbr.gosti }}; background: #FBF6EC; font-size: 16px; min-width: 0;" data-ev="input:fset.gosti"></label>
 </div>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Mesto događaja<input name="mesto" data-b-value="{{ f.mesto }}" type="text" data-b-style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid {{ fbr.mesto }}; background: #FBF6EC; font-size: 16px;" data-ev="input:fset.mesto"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;">Poruka<textarea name="poruka" data-b-value="{{ f.poruka }}" rows="3" data-b-style="padding: 12px 14px; border-radius: 12px; border: 1.5px solid {{ fbr.poruka }}; background: #FBF6EC; resize: none; font-size: 16px;" data-ev="input:fset.poruka"></textarea></label>
@@ -652,7 +761,24 @@ class CompDesktop extends DCLogic {
       gprev: () => gg(g - 1), gnext: () => gg(g + 1)
     };
     for (let k = 0; k < G; k++) { gv['gp' + k] = () => gg(k); gv['gt' + k] = thumb(k); }
-    return Object.assign({}, fv, gv);
+    const RV = [{"t": "„Sve pohvale za ketering! Hrana je bila preukusna, sveže pripremljena i lepo dekorisana. Sve je stiglo na vreme i bilo je više nego dovoljno za sve goste. Posebno nam se dopalo što je sve bilo lepo organizovano i što nismo morali da brinemo ni o čemu. Gosti su bili oduševljeni, a mi prezadovoljni. Sve preporuke za svaku vrstu privatne proslave!“", "n": "Marija Jovanović", "g": "Privatna proslava"}, {"t": "„Naručili smo ketering za rođendan i prezadovoljni smo! Hrana je bila ukusna, porcije odlične, a sve je izgledalo baš lepo na stolu. Komunikacija je bila jednostavna, dogovor ispoštovan, a gosti su nas stalno pitali odakle je hrana. Iskrena preporuka svima koji organizuju proslavu!“", "n": "Danica Petrović", "g": "Rođendan"}, {"t": "„Ketering smo uzeli za team building i baš smo zadovoljni. Dogovor je prošao bez problema, hrana je bila odlična i svi iz ekipe su pohvalili. Definitivno preporuka.“", "n": "Jovana Ivković", "g": "Tim bilding"}];
+    const rvi = this.state.rvi;
+    const rv = {
+      rvShow: rvi != null,
+      rvText: rvi != null ? RV[rvi].t : '', rvName: rvi != null ? RV[rvi].n : '', rvTag: rvi != null ? RV[rvi].g : '',
+      rvClose: () => this.setState({ rvi: null }),
+      rvStop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
+      rvOpen0: () => this.setState({ rvi: 0 }), rvOpen1: () => this.setState({ rvi: 1 }), rvOpen2: () => this.setState({ rvi: 2 })
+    };
+    const DRN = 4, dr = this.state.dr || 0;
+    const dgo = (k) => this.setState({ dr: (k + DRN) % DRN });
+    const ddot = (on) => 'display: block; height: 10px; border-radius: 999px; transition: width .3s, background-color .3s; ' + (on ? 'width: 26px; background: #2B2118;' : 'width: 10px; background: #D8C8A8;');
+    const drv = {
+      drTrack: 'display: flex; gap: 28px; transform: translateX(calc(' + (-dr) + ' * (100% + 28px) / 3)); transition: transform .55s cubic-bezier(.22,.61,.36,1); will-change: transform;',
+      drPrev: () => dgo(dr - 1), drNext: () => dgo(dr + 1),
+      drDots: [0, 1, 2, 3].map((k) => ({ label: 'Recenzije ' + (k + 1) + '–' + (k + 3), pick: () => dgo(k), style: ddot(k === dr) }))
+    };
+    return Object.assign({}, fv, gv, rv, drv);
   }
 }
 
@@ -660,13 +786,23 @@ class CompMobile extends DCLogic {
   constructor(props) { super(props); this.state = { rev: 0, pkg: 0, gal: 0, nav: false }; this.tx = {}; }
   renderVals() {
     const n = 3, i = this.state.rev, j = this.state.pkg;
-    const go = (k) => this.setState({ rev: (k + n) % n });
+    const nr = 6;
+    const go = (k) => this.setState({ rev: (k + nr) % nr });
     const gp = (k) => this.setState({ pkg: (k + n) % n });
     const dot = (on) => 'display: block; height: 10px; border-radius: 999px; transition: width .3s, background-color .3s; ' + (on ? 'width: 26px; background: #2B2118;' : 'width: 10px; background: #D8C8A8;');
     const track = (k) => 'display: flex; gap: 16px; transform: translateX(calc(' + (-k) + ' * (100% + 16px))); transition: transform .5s cubic-bezier(.22,.61,.36,1); will-change: transform;';
     const start = (key) => (e) => { const t = e.touches && e.touches[0]; this.tx[key] = t ? t.clientX : null; };
     const end = (key, cur, move) => (e) => { const x0 = this.tx[key]; const t = e.changedTouches && e.changedTouches[0]; this.tx[key] = null; if (x0 == null || !t) return; const dx = t.clientX - x0; if (Math.abs(dx) > 40) move(dx < 0 ? cur + 1 : cur - 1); };
     const names = ['Tim bilding', 'Rođendani', 'Proslave'];
+    const RV = [{"t": "„Sve pohvale za ketering! Hrana je bila preukusna, sveže pripremljena i lepo dekorisana. Sve je stiglo na vreme i bilo je više nego dovoljno za sve goste. Posebno nam se dopalo što je sve bilo lepo organizovano i što nismo morali da brinemo ni o čemu. Gosti su bili oduševljeni, a mi prezadovoljni. Sve preporuke za svaku vrstu privatne proslave!“", "n": "Marija Jovanović", "g": "Privatna proslava"}, {"t": "„Naručili smo ketering za rođendan i prezadovoljni smo! Hrana je bila ukusna, porcije odlične, a sve je izgledalo baš lepo na stolu. Komunikacija je bila jednostavna, dogovor ispoštovan, a gosti su nas stalno pitali odakle je hrana. Iskrena preporuka svima koji organizuju proslavu!“", "n": "Danica Petrović", "g": "Rođendan"}, {"t": "„Ketering smo uzeli za team building i baš smo zadovoljni. Dogovor je prošao bez problema, hrana je bila odlična i svi iz ekipe su pohvalili. Definitivno preporuka.“", "n": "Jovana Ivković", "g": "Tim bilding"}];
+    const rvi = this.state.rvi;
+    const rv = {
+      rvShow: rvi != null,
+      rvText: rvi != null ? RV[rvi].t : '', rvName: rvi != null ? RV[rvi].n : '', rvTag: rvi != null ? RV[rvi].g : '',
+      rvClose: () => this.setState({ rvi: null }),
+      rvStop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
+      rvOpen0: () => this.setState({ rvi: 0 }), rvOpen1: () => this.setState({ rvi: 1 }), rvOpen2: () => this.setState({ rvi: 2 })
+    };
     const F = this.state.f || { ime: '', tel: '', vrsta: '', datum: '', gosti: '', mesto: '', poruka: '' };
     const E = this.state.fe || {};
     const setF = (k) => (e) => { const v = e.target.value; const nf = Object.assign({}, this.state.f || F, { [k]: v }); const ne = Object.assign({}, this.state.fe || {}); delete ne[k]; this.setState({ f: nf, fe: ne, fmsg: '' }); };
@@ -696,7 +832,7 @@ class CompMobile extends DCLogic {
       navOpen: nav ? 'true' : 'false',
       navLabel: nav ? 'Zatvori meni' : 'Otvori meni',
       navToggle: () => this.setState({ nav: !nav }),
-      navClose: () => this.setState({ nav: false }),
+      navClose: () => setTimeout(() => this.setState({ nav: false }), 180),
       navIcon: nav ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16',
       navBtn: 'display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #2B2118; cursor: pointer; padding: 0; transition: background-color .25s, color .25s; ' + (nav ? 'background: #2B2118; color: #F2B705;' : 'background: transparent; color: #2B2118;'),
       navPanel: 'position: absolute; top: 100%; left: 12px; right: 12px; margin-top: 8px; padding: 10px 16px 16px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E8DCC3; box-shadow: 0 18px 40px rgba(43,33,24,.18); transform-origin: top right; transition: opacity .25s ease, transform .3s cubic-bezier(.22,.61,.36,1), visibility .3s; ' + (nav ? 'opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto;' : 'opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.97); pointer-events: none;')
@@ -718,6 +854,7 @@ class CompMobile extends DCLogic {
       ...gv,
       ...nv,
       ...fv,
+      ...rv,
       ptrack: track(j),
       pts: start('p'), pte: end('p', j, gp),
       pprev: () => gp(j - 1),
@@ -727,7 +864,7 @@ class CompMobile extends DCLogic {
       rts: start('r'), rte: end('r', i, go),
       prev: () => go(i - 1),
       next: () => go(i + 1),
-      dots: [0, 1, 2].map((k) => ({ label: 'Recenzija ' + (k + 1), pick: () => go(k), style: dot(k === i) }))
+      dots: [0, 1, 2, 3, 4, 5].map((k) => ({ label: 'Recenzija ' + (k + 1), pick: () => go(k), style: dot(k === i) }))
     };
   }
 }
@@ -785,6 +922,7 @@ class CompMobile extends DCLogic {
     update();
   }
 
+  document.addEventListener('touchstart', () => {}, { passive: true });
   mount(document.getElementById('site-desktop'), CompDesktop, 1440, 1.25);
   mount(document.getElementById('site-mobile'), CompMobile, 375, 1.35);
 })();
